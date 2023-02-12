@@ -1,20 +1,20 @@
 [
     {
         "type": "Directory",
-        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week2",
+        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3",
         "parent_id": null,
-        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week2",
+        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "4sWwvtyxgInKNADR"
+        "id": "m5h6x41ZOlogkHeT"
     },
     {
         "type": "Directory",
-        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice",
+        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3",
         "parent_id": null,
-        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice",
+        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "rOeXYSZ2N65FxTl1"
+        "id": "V1AMaCxnQiuoPwO2"
     }
 ]

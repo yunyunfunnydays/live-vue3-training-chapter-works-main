@@ -12,16 +12,15 @@ const app = createApp({
   methods: {
     login() {
       const api = 'https://vue3-course-api.hexschool.io/v2/admin/signin';
-      axios
-        .post(api, this.user)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((res) => {
-          console.error(res);
-        });
+      axios.post(api, this.user).then((res) => {
+        console.log(res);
+        const {token, expired} = res.data;
+        document.cookie = `hexToken = ${token}; expires=${new Date(expired)}; path=/`;
+        window.location = 'products.html'
+      }).catch((err) => {
+        alert(err.data.message);
+      });
     },
   },
 });
-
 app.mount('#app');

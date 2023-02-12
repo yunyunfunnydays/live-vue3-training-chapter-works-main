@@ -1,20 +1,54 @@
 [
     {
-        "type": "Directory",
-        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3",
+        "type": "Group",
+        "name": "example",
         "parent_id": null,
-        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "m5h6x41ZOlogkHeT"
+        "id": "C9OzTeqjiyLaWPmF"
     },
     {
-        "type": "Directory",
-        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3",
+        "type": "Group",
+        "name": "practice",
         "parent_id": null,
-        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "V1AMaCxnQiuoPwO2"
+        "id": "OSUPzTntaFryVcb9"
+    },
+    {
+        "type": "File",
+        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3\\products.html",
+        "parent_id": "C9OzTeqjiyLaWPmF",
+        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3\\products.html",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "JD3tOKxrFAnSQubV"
+    },
+    {
+        "type": "File",
+        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.html",
+        "parent_id": "OSUPzTntaFryVcb9",
+        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.html",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "Te2U7F4m5HsyaGJu"
+    },
+    {
+        "type": "File",
+        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.js",
+        "parent_id": "OSUPzTntaFryVcb9",
+        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "Lou8Dbwt2ROgiv9E"
+    },
+    {
+        "type": "File",
+        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3\\products.js",
+        "parent_id": "C9OzTeqjiyLaWPmF",
+        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3\\products.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "purJUV7gS5PdMqLl"
     }
 ]

@@ -6,25 +6,19 @@ let delProductModal = null;
 const app = createApp({
 	data() {
 		return {
-			apiUrl: 'https://vue3-course-api.hexschool.io/',
-			api: 'colorfool',
-			products: [],
-			tempProduct: {},
+			apiUrl: 'https://vue3-course-api.hexschool.io',
+			apiPath: 'colorfool',
+			products: [
+			],
+			tempProduct: {
+				imagesUrl: [],
+			},
+			isNew: '',
 		}
 	},
 	methods: {
-		getData() {
-			const url = `${this.apiUrl}v2/api/${this.api}/admin/products`;
-			axios.get(url)
-				.then((res) => {
-					this.products = res.data.products;
-				})
-				.catch((err) => {
-					alert(err.response.data.message);
-				})
-		},
 		checkAdmin() {
-			const url = `${this.apiUrl}v2/api/user/check`;
+			const url = `${this.apiUrl}/v2/api/user/check`;
 			axios.post(url)
 				.then(() => {
 					this.getData();
@@ -34,12 +28,26 @@ const app = createApp({
 					window.location = 'login.html';
 				});
 		},
+		getData() {
+			const url = `${this.apiUrl}/v2/api/${this.apiPath}/admin/products`;
+			axios.get(url)
+				.then((res) => {
+					this.products = res.data.products;
+				})
+				.catch((err) => {
+					alert(err.response.data.message);
+				})
+		},
 		openModal(state, item) {
 			if ('isNew' === state) {
-				this.tempProduct = {};
+				this.tempProduct = {
+					imagesUrl: [],
+				};
+				this.isNew = true;
 				productModal.show();
 			} else if ('edit' === state) {
 				this.tempProduct = { ...item };
+				this.isNew = false;
 				productModal.show();
 			} else if ('delete' === state) {
 				this.tempProduct = { ...item };
@@ -47,10 +55,26 @@ const app = createApp({
 			}
 		},
 		updateProduct() {
-			const url = '';
+			let url = `${this.apiUrl}/v2/api/${this.apiPath}/admin/product`;
+			let apiMethod = '';
+			if (!this.isNew) {
+				apiMethod = 'put';
+				url = `${this.apiUrl}/v2/api/${this.apiPath}/admin/product/${this.tempProduct.id}`;
+			} else {
+				apiMethod = 'post';
+			}
+			axios[apiMethod](url, { data: this.tempProduct })
+				.then((res) => {
+					alert(res.data.message);
+					productModal.hide();
+					this.getData();
+				})
+				.catch((err) => {
+					alert(err.response.data.message);
+				});
 		},
 		delProduct() {
-			const url = `${this.apiUrl}v2/api/${this.api}/admin/product/${this.tempProduct.id}1`;
+			const url = `${this.apiUrl}/v2/api/${this.apiPath}/admin/product/${this.tempProduct.id}`;
 			axios.delete(url)
 				.then((res) => {
 					alert(res.data.message);

@@ -17,7 +17,7 @@ const app = createApp({
         document.cookie = `hexToken = ${token}; expires=${new Date(expired)}; path=/`;
         window.location = 'products.html'
       }).catch((err) => {
-        alert(err.data.message);
+        alert(err.response.data.message);
       });
     },
   },

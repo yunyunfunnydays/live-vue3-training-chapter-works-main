@@ -17,38 +17,38 @@
     },
     {
         "type": "File",
-        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3\\products.html",
-        "parent_id": "C9OzTeqjiyLaWPmF",
-        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3\\products.html",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "JD3tOKxrFAnSQubV"
-    },
-    {
-        "type": "File",
-        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.html",
+        "name": "h:\\yunyun\\vue\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.html",
         "parent_id": "OSUPzTntaFryVcb9",
-        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.html",
+        "fsPath": "h:\\yunyun\\vue\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.html",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "Te2U7F4m5HsyaGJu"
+        "id": "d0H9LokBgGcODIKy"
     },
     {
         "type": "File",
-        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.js",
+        "name": "h:\\yunyun\\vue\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.js",
         "parent_id": "OSUPzTntaFryVcb9",
-        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.js",
+        "fsPath": "h:\\yunyun\\vue\\live-vue3-training-chapter-works-main\\myPractice\\week3\\products.js",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "Lou8Dbwt2ROgiv9E"
+        "id": "rx4CsXtD6pR8G93P"
     },
     {
         "type": "File",
-        "name": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3\\products.js",
+        "name": "h:\\yunyun\\vue\\live-vue3-training-chapter-works-main\\example\\week3\\products.html",
         "parent_id": "C9OzTeqjiyLaWPmF",
-        "fsPath": "d:\\Vue\\直播班\\live-vue3-training-chapter-works-main\\example\\week3\\products.js",
+        "fsPath": "h:\\yunyun\\vue\\live-vue3-training-chapter-works-main\\example\\week3\\products.html",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "purJUV7gS5PdMqLl"
+        "id": "pVKvrCmB5l72hcua"
+    },
+    {
+        "type": "File",
+        "name": "h:\\yunyun\\vue\\live-vue3-training-chapter-works-main\\example\\week3\\products.js",
+        "parent_id": "C9OzTeqjiyLaWPmF",
+        "fsPath": "h:\\yunyun\\vue\\live-vue3-training-chapter-works-main\\example\\week3\\products.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "1zrZt3OHVlQUWfic"
     }
 ]

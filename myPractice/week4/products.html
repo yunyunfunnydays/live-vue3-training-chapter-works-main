@@ -89,21 +89,18 @@
                   <div v-for="(imageUrl, index) in tempProduct.imagesUrl" :key="imageUrl">
                     <div class="mb-3">
                       <label for="imageUrl" class="form-label">圖片網址</label>
-                      <!-- 注意 Loop 中 v model 雙向綁定的不是 Loop 的值(因為傳參)，要綁原始 data 值-->
+                      <!-- 注意v model 雙向綁定的不是 Loop 的值(因為傳參)，要綁原始 data 值-->
                       <input v-model="tempProduct.imagesUrl[index]" type="text" class="form-control"
                         placeholder="請輸入圖片連結">
                     </div>
                     <img class="img-fluid" :src="imageUrl" alt="">
                   </div>
                 </div>
-                <!-- 當沒有imagesUrl陣列，或 tempProduct.imagesUrl為空陣列，或 tempProduct.imagesUrl陣列最後一位有值時，可以增加陣列長度 -->
-                <div
-                  v-if="!tempProduct.imagesUrl || 0 == tempProduct.imagesUrl.length || tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]">
-                  <button @click="addTempImageUrl" class="btn btn-outline-primary btn-sm d-block w-100">
+                <div v-if="!tempProduct.imagesUrl || tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]">
+                  <button @click="tempProduct.imagesUrl.push('')" class="btn btn-outline-primary btn-sm d-block w-100">
                     新增圖片
                   </button>
                 </div>
-                <!-- 當有imagesUrl陣列且 tempProduct.imagesUrl陣列中最後一位沒有值時，可以刪除最後一位 -->
                 <div v-else>
                   <button @click="tempProduct.imagesUrl.pop()" class="btn btn-outline-danger btn-sm d-block w-100">
                     刪除圖片

@@ -46,9 +46,7 @@ const app = createApp({
 				this.isNew = true;
 				productModal.show();
 			} else if ('edit' === state) {
-				// 若不用展開則為傳參，直接改會同步改到原本的data
 				this.tempProduct = { ...item };
-				console.log(this.tempProduct);
 				this.isNew = false;
 				productModal.show();
 			} else if ('delete' === state) {
@@ -86,12 +84,6 @@ const app = createApp({
 				.catch((err) => {
 					alert(err.response.data.message);
 				});
-		},
-		addTempImageUrl() {
-			if (!this.tempProduct.imagesUrl) {
-				this.tempProduct.imagesUrl = [];
-			}
-			this.tempProduct.imagesUrl.push('');
 		}
 	},
 	mounted() {

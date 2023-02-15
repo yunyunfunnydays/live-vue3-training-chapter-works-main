@@ -92,6 +92,10 @@ const app = createApp({
 				.catch((err) => {
 					alert(err.response.data.message);
 				})
+		},
+		changePage(num) {
+			this.page = num;
+			this.getData();
 		}
 	},
 	mounted() {

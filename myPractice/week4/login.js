@@ -17,7 +17,7 @@ const app = createApp({
 				.then((res) => {
 					const { token, expired } = res.data;
 					document.cookie = `token=${token};expires=${new Date(expired)};path=/`;
-					window.location = 'product.html';
+					window.location = 'products.html';
 				})
 				.catch((err) => {
 					alert(err.response.data.message);

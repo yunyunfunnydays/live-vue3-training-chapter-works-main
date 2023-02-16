@@ -1,8 +1,9 @@
 import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 import { pagination } from "./components/pagination.js";
+import { delProductModal } from "./components/delProductModal.js";
 
 let productModal = null;
-let delProductModal = null;
+
 
 const app = createApp({
 	data() {
@@ -10,14 +11,13 @@ const app = createApp({
 			test: 'test',
 			apiUrl: 'https://vue3-course-api.hexschool.io',
 			apiPath: 'colorfool',
-			page: '1',
 			products: [],
 			pagination: {},
 			tempProduct: {},
 			isNew: false,
 		}
 	},
-	components: { pagination },
+	components: { pagination, delProductModal },
 	methods: {
 		checkAdmin() {
 			const api = `${this.apiUrl}/v2/api/user/check`;
@@ -30,12 +30,11 @@ const app = createApp({
 					window.location = 'login.html';
 				})
 		},
-		getData() {
-			const api = `${this.apiUrl}/v2/api/${this.apiPath}/admin/products?page=${this.page}`;
+		getData(pageNum = 1) {
+			const api = `${this.apiUrl}/v2/api/${this.apiPath}/admin/products?page=${pageNum}`;
 			axios.get(api)
 				.then((res) => {
 					const { products, pagination } = res.data;
-					this.test = pagination;
 					this.products = products;
 					this.pagination = pagination;
 				})
@@ -44,7 +43,6 @@ const app = createApp({
 				});
 		},
 		openModal(state, product) {
-			this.test = state;
 			if ('addNew' === state) {
 				this.tempProduct = {};
 				this.isNew = true;
@@ -71,7 +69,6 @@ const app = createApp({
 				api = `${api}/${this.tempProduct.id}`;
 				httpMethod = 'put';
 			}
-			this.test = api;
 			axios[httpMethod](api, { data: this.tempProduct })
 				.then((res) => {
 					alert(res.data.message);
@@ -82,31 +79,12 @@ const app = createApp({
 					alert(err.response.data.message);
 				})
 		},
-		delProduct() {
-			const api = `${this.apiUrl}/v2/api/${this.apiPath}/admin/product/${this.tempProduct.id}`;
-			axios.delete(api)
-				.then((res) => {
-					alert(res.data.message);
-					delProductModal.hide();
-					this.getData();
-				})
-				.catch((err) => {
-					alert(err.response.data.message);
-				})
-		},
-		changePage(num) {
-			this.page = num;
-			this.getData();
-		}
 	},
 	mounted() {
 		productModal = new bootstrap.Modal(document.getElementById('productModal'));
-		delProductModal = new bootstrap.Modal(document.getElementById('delProductModal'));
-
 		const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 		axios.defaults.headers.common.Authorization = token;
 		this.checkAdmin();
 	},
-
 });
 app.mount('#app');

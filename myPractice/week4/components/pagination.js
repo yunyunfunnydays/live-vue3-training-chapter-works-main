@@ -1,16 +1,11 @@
-
 const pagination = {
-  data() {
-    return {
-      
-    }
-  },
-  methods: {
-    changePage(num){
-      
-    }
-  },
+  emits: ['pageNum'],
   props: ['pagination'],
+  methods: {
+    changePage(pageNum) {
+      this.$emit('emit-page', pageNum);
+    }
+  },
   template: `
      <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">

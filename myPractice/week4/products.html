@@ -64,31 +64,7 @@
         </tbody>
       </table>
       <!--pagination Modal -->
-
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-
-          <li class="page-item" :class="{disabled: pagination.current_page === 1}" @click.prevent="changePage(1)">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-
-          <li class="page-item" v-for="pageNum in pagination.total_pages"
-            :class="{active: pagination.current_page === pageNum}" @click.prevent="changePage(pageNum)" :key="pageNum">
-            <a class="page-link" href="#">{{pageNum}}</a>
-          </li>
-
-          <li class="page-item" :class="{disabled: pagination.current_page === pagination.total_pages}"
-            @click.prevent="changePage(pagination.total_pages)">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-
-        </ul>
-      </nav>
-      <pagination :pagination="pagination"> </pagination>
+      <pagination :pagination="pagination" @emit-page="getData"> </pagination>
       <!-- Modal -->
     </div>
     <!--  productModal Modal -->
@@ -199,33 +175,8 @@
     </div>
     <!-- Modal -->
     <!--  delProductModal Modal -->
-    <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
-      aria-labelledby="delProductModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content border-0">
-          <div class="modal-header bg-danger text-white">
-            <h5 id="delProductModalLabel" class="modal-title">
-              <span>刪除產品</span>
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            是否刪除
-            <strong class="text-danger"></strong> 商品(刪除後將無法恢復)。
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-              取消
-            </button>
-            <button @click="delProduct" type="button" class="btn btn-danger">
-              確認刪除
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-
+    <delProductModal :tempProduct="tempProduct" ref="delProductModal"></delProductModal>
+    <!--Modal -->
   </div>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   <!-- JavaScript Bundle with Popper -->

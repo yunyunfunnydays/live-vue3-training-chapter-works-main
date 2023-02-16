@@ -41,21 +41,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in products" :key="item.id">
-            <td>{{ item.category }}</td>
-            <td>{{ item.title }}</td>
-            <td class="text-end">{{ item.origin_price }}</td>
-            <td class="text-end">{{ item.price}}</td>
+          <tr v-for="product in products" :key="product.id">
+            <td>{{ product.category }}</td>
+            <td>{{ product.title }}</td>
+            <td class="text-end">{{ product.origin_price }}</td>
+            <td class="text-end">{{ product.price}}</td>
             <td>
-              <span v-if="item.is_enabled" class="text-success">啟用</span>
-              <span v-else>未啟用</span>
+              <span :class="{'text-success':product.is_enabled}"> {{product.is_enabled? '啟用':'未啟用'}} </span>
             </td>
             <td>
               <div class="btn-group">
-                <button @click="openModal('edit', item)" type="button" class="btn btn-outline-primary btn-sm">
+                <button @click="openModal('edit', product)" type="button" class="btn btn-outline-primary btn-sm">
                   編輯
                 </button>
-                <button @click="openModal('delete', item)" type="button" class="btn btn-outline-danger btn-sm">
+                <button @click="openModal('delete', product)" type="button" class="btn btn-outline-danger btn-sm">
                   刪除
                 </button>
               </div>
@@ -203,10 +202,11 @@
     <!-- Modal -->
   </div>
 
-<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
   <script src="products.js" type="module"></script>
 </body>
 

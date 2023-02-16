@@ -30,9 +30,8 @@ const app = createApp({
 					alert(err.response.data.message);
 				})
 		},
-		openProduct(item) {
-			this.tempProduct = item;
-			console.log(this.tempProduct);
+		openProduct(product) {
+			this.tempProduct = product;
 		},
 	},
 	mounted() {

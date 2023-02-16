@@ -25,7 +25,7 @@ const app = createApp({
 				})
 				.catch((err) => {
 					alert(err.response.data.message);
-					window.location = 'login.html';
+					// window.location = 'login.html';
 				});
 		},
 		getData() {
@@ -38,7 +38,7 @@ const app = createApp({
 					alert(err.response.data.message);
 				})
 		},
-		openModal(state, item) {
+		openModal(state, product) {
 			if ('isNew' === state) {
 				this.tempProduct = {
 					imagesUrl: [],
@@ -47,11 +47,11 @@ const app = createApp({
 				productModal.show();
 			} else if ('edit' === state) {
 				// 若不用展開則為傳參，直接改會同步改到原本的data
-				this.tempProduct = { ...item };
+				this.tempProduct = { ...product };
 				this.isNew = false;
 				productModal.show();
 			} else if ('delete' === state) {
-				this.tempProduct = { ...item };
+				this.tempProduct = { ...product };
 				delProductModal.show();
 			}
 		},

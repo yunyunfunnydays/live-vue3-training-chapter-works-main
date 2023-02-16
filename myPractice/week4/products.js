@@ -42,18 +42,18 @@ const app = createApp({
 					alert(err.response.data.message);
 				});
 		},
-		openModal(state, item) {
+		openModal(state, product) {
 			this.test = state;
 			if ('addNew' === state) {
 				this.tempProduct = {};
 				this.isNew = true;
 				productModal.show()
 			} else if ('edit' === state) {
-				this.tempProduct = { ...item };
+				this.tempProduct = { ...product };
 				this.isNew = false;
 				productModal.show();
 			} else if ('delete' === state) {
-				this.tempProduct = { ...item };
+				this.tempProduct = { ...product };
 				delProductModal.show();
 			}
 		},

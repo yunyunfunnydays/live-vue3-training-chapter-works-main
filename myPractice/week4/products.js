@@ -1,4 +1,5 @@
 import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+import { pagination } from "./components/pagination.js";
 
 let productModal = null;
 let delProductModal = null;
@@ -16,7 +17,7 @@ const app = createApp({
 			isNew: false,
 		}
 	},
-
+	components: { pagination },
 	methods: {
 		checkAdmin() {
 			const api = `${this.apiUrl}/v2/api/user/check`;
@@ -42,18 +43,18 @@ const app = createApp({
 					alert(err.response.data.message);
 				});
 		},
-		openModal(state, item) {
+		openModal(state, product) {
 			this.test = state;
 			if ('addNew' === state) {
 				this.tempProduct = {};
 				this.isNew = true;
 				productModal.show()
 			} else if ('edit' === state) {
-				this.tempProduct = { ...item };
+				this.tempProduct = { ...product };
 				this.isNew = false;
 				productModal.show();
 			} else if ('delete' === state) {
-				this.tempProduct = { ...item };
+				this.tempProduct = { ...product };
 				delProductModal.show();
 			}
 		},
@@ -108,5 +109,4 @@ const app = createApp({
 	},
 
 });
-
 app.mount('#app');

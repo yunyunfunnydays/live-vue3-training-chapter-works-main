@@ -42,21 +42,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, id) in products" :key="id">
-            <td> {{ item.category }} </td>
-            <td> {{ item.title }} </td>
-            <td class="text-end"> {{item.origin_price}} </td>
-            <td class="text-end"> {{item.price}} </td>
+          <tr v-for="(product, id) in products" :key="id">
+            <td> {{ product.category }} </td>
+            <td> {{ product.title }} </td>
+            <td class="text-end"> {{product.origin_price}} </td>
+            <td class="text-end"> {{product.price}} </td>
             <td>
-              <span v-if="item.is_enabled" class="text-success">啟用</span>
-              <span v-else>未啟用</span>
+              <span :class="{'text-success':product.is_enabled}"> {{product.is_enabled? '啟用':'未啟用'}} </span>
             </td>
             <td>
               <div class="btn-group">
-                <button @click="openModal('edit',item)" type="button" class="btn btn-outline-primary btn-sm">
+                <button @click="openModal('edit',product)" type="button" class="btn btn-outline-primary btn-sm">
                   編輯
                 </button>
-                <button @click="openModal('delete',item)" type="button" class="btn btn-outline-danger btn-sm">
+                <button @click="openModal('delete',product)" type="button" class="btn btn-outline-danger btn-sm">
                   刪除
                 </button>
               </div>
@@ -75,9 +74,9 @@
             </a>
           </li>
 
-          <li class="page-item" v-for="num in pagination.total_pages" :class="{active: pagination.current_page === num}"
-            @click.prevent="changePage(num)" :key="num">
-            <a class="page-link" href="#">{{num}}</a>
+          <li class="page-item" v-for="pageNum in pagination.total_pages"
+            :class="{active: pagination.current_page === pageNum}" @click.prevent="changePage(pageNum)" :key="pageNum">
+            <a class="page-link" href="#">{{pageNum}}</a>
           </li>
 
           <li class="page-item" :class="{disabled: pagination.current_page === pagination.total_pages}"
@@ -89,7 +88,7 @@
 
         </ul>
       </nav>
-
+      <pagination :pagination="pagination"> </pagination>
       <!-- Modal -->
     </div>
     <!--  productModal Modal -->

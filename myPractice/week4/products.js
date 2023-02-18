@@ -1,23 +1,24 @@
 import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 import { pagination } from "./components/pagination.js";
 import { delProductModal } from "./components/delProductModal.js";
+import { productModal } from "./components/productModal.js";
 
-let productModal = null;
+// let productModal = null;
 
 
 const app = createApp({
 	data() {
 		return {
-			test: 'test',
 			apiUrl: 'https://vue3-course-api.hexschool.io',
 			apiPath: 'colorfool',
+			api: '',
 			products: [],
 			pagination: {},
 			tempProduct: {},
 			isNew: false,
 		}
 	},
-	components: { pagination, delProductModal },
+	components: { pagination, delProductModal, productModal },
 	methods: {
 		checkAdmin() {
 			const api = `${this.apiUrl}/v2/api/user/check`;
@@ -46,45 +47,25 @@ const app = createApp({
 			if ('addNew' === state) {
 				this.tempProduct = {};
 				this.isNew = true;
-				productModal.show()
+				this.api = `${this.apiUrl}/v2/api/${this.apiPath}/admin/product`;
+				this.$refs.productModal.showModal()
 			} else if ('edit' === state) {
 				this.tempProduct = { ...product };
 				this.isNew = false;
-				productModal.show();
+				this.api = `${this.apiUrl}/v2/api/${this.apiPath}/admin/product/${this.tempProduct.id}`;
+				this.$refs.productModal.showModal();
 			} else if ('delete' === state) {
 				this.tempProduct = { ...product };
-				delProductModal.show();
+				this.api = `${this.apiUrl}/v2/api/${this.apiPath}/admin/product/${this.tempProduct.id}`;
+				this.$refs.delProductModal.showModal();
 			}
-		},
-		addTempImageUrl() {
-			if (!this.tempProduct.imagesUrl) {
-				this.tempProduct.imagesUrl = [];
-			}
-			this.tempProduct.imagesUrl.push('');
-		},
-		updateProduct() {
-			let api = `${this.apiUrl}/v2/api/${this.apiPath}/admin/product`;
-			let httpMethod = 'post';
-			if (!this.isNew) {
-				api = `${api}/${this.tempProduct.id}`;
-				httpMethod = 'put';
-			}
-			axios[httpMethod](api, { data: this.tempProduct })
-				.then((res) => {
-					alert(res.data.message);
-					productModal.hide();
-					this.getData();
-				})
-				.catch((err) => {
-					alert(err.response.data.message);
-				})
 		},
 	},
 	mounted() {
-		productModal = new bootstrap.Modal(document.getElementById('productModal'));
 		const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 		axios.defaults.headers.common.Authorization = token;
 		this.checkAdmin();
+		this
 	},
 });
 app.mount('#app');

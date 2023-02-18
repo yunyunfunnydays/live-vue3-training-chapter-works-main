@@ -1,33 +1,36 @@
 const delProductModal = {
-  template: '#delProductModal',
   data() {
     return {
       delProductModal: '',
     }
   },
-  props: ['tempProduct'],
+  props: ['tempProduct', 'api'],
+  emits: ['getData'],
   methods: {
-    emit() {
-      this.$emit('delProductModal', delProductModal)
-    },
     delProduct() {
-      const api = `${this.apiUrl}/v2/api/${this.apiPath}/admin/product/${this.tempProduct.id}`;
-      axios.delete(api)
+      axios.delete(this.api)
         .then((res) => {
           alert(res.data.message);
-          delProductModal.hide();
-          this.getData();
+          this.delProductModal.hide();
+          this.$emit('getData');
         })
         .catch((err) => {
           alert(err.response.data.message);
         })
     },
+    showModal() {
+      this.delProductModal.show();
+    },
+    hideModal() {
+      this.delProductModal.hide();
+    }
   },
   mounted() {
-    delProductModal = new bootstrap.Modal(document.getElementById('delProductModal'));
-    this.emit()
+    this.delProductModal = new bootstrap.Modal(this.$refs.delProductModal);
   },
-  template: `<div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
+  template: `
+  <div></div>
+  <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
         aria-labelledby="delProductModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content border-0">
@@ -39,7 +42,7 @@ const delProductModal = {
             </div>
             <div class="modal-body">
               是否刪除
-              <strong class="text-danger"></strong> 商品(刪除後將無法恢復)。
+              <strong class="text-danger"></strong>{{tempProduct.title}} (刪除後將無法恢復)。
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -51,6 +54,7 @@ const delProductModal = {
           </div>
         </div>
       </div>
-    </div >`,
+    </div >
+  `,
 }
 export { delProductModal };

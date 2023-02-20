@@ -1,7 +1,10 @@
+import {productDetailModal} from "./productDetailModal.js";
+
 const { createApp } = Vue;
 const { Form, Field, ErrorMessage, defineRule, configure } = VeeValidate;
 const { email, required, min, max } = VeeValidateRules;
 const { loadLocaleFromURL, localize } = VeeValidateI18n;
+
 
 defineRule('email', email);
 defineRule('required', required);
@@ -21,7 +24,8 @@ const app = createApp({
       test: '',
       apiUrl: 'https://vue3-course-api.hexschool.io',
       apiPath: 'colorfool',
-      products: {},
+      products: [],
+      productDetail: {},
       cart: '',
     }
   },
@@ -29,6 +33,13 @@ const app = createApp({
     vForm: Form,
     vField: Field,
     vErrorMessage: ErrorMessage,
+    productDetailModal,
+  },
+  methods: {
+    getDetail(product) {
+      this.productDetail = product;
+      this.$refs.productDetailModal.showModal();
+    }
   },
   mounted() {
     const api = `${this.apiUrl}/v2/api/${this.apiPath}/products`;

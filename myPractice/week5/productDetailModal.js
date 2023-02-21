@@ -2,22 +2,28 @@ const productDetailModal = {
   data() {
     return {
       modal: '',
+      gty: 1,
     }
   },
   props: ['product'],
+  emits: ['addToCart'],
   methods: {
     showModal() {
       this.modal.show();
     },
     hideModal() {
       this.modal.hide();
+    },
+    addToCart(product) {
+      this.$emit('addToCart', product, this.gty);
+      this.hideModal();
     }
   },
   mounted() {
     this.modal = new bootstrap.Modal(this.$refs.modal);
   },
   template: `
-<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ref="modal">
+<div class="modal fade" id="productDetailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ref="modal">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content border-0">
       <div class="modal-header bg-dark text-white">
@@ -30,7 +36,7 @@ const productDetailModal = {
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-6">
-            <img class="img-fluid" :src="product.imageUrl" alt="">
+            <img class="img-fluid" :src="product.imagesUrl" alt="">
       </div>
           <div class="col-sm-6">
             <span class="badge bg-primary rounded-pill">{{ product.category }}</span>
@@ -41,9 +47,9 @@ const productDetailModal = {
             <div class="h5">現在只要 {{ product.price }} 元</div>
             <div>
               <div class="input-group">
-                <input type="number" class="form-control"
+                <input v-model="gty" type="number" class="form-control"
                        min="1">
-                <button type="button" class="btn btn-primary">加入購物車</button>
+                <button @click.prevent="addToCart(product)" type="button" class="btn btn-primary">加入購物車</button>
       </div>
       </div>
       </div>

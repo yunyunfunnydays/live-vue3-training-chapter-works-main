@@ -100,12 +100,12 @@ const productModal = {
                 <div class="row">
                   <div class="mb-3 col-md-6">
                     <label for="origin_price" class="form-label">原價</label>
-                    <input v-model="tempProduct.origin_price" id="origin_price" type="number" min="0"
+                    <input v-model.number="tempProduct.origin_price" id="origin_price" type="number" min="0"
                       class="form-control" placeholder="請輸入原價">
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="price" class="form-label">售價</label>
-                    <input v-model="tempProduct.price" id="price" type="number" min="0" class="form-control"
+                    <input v-model.number="tempProduct.price" id="price" type="number" min="0" class="form-control"
                       placeholder="請輸入售價">
                   </div>
                 </div>

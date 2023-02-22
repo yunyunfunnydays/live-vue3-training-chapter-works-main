@@ -7,7 +7,7 @@ createApp({
   data() {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/v2',
-      apiPath: 'colorfool',
+      apiPath: 'hexschoolvue',
       products: [],
       isNew: false,
       tempProduct: {
@@ -84,7 +84,7 @@ createApp({
       }
     },
     delProduct() {
-      const url = `${this.apiUrl}/api/${this.apiPath}/admin/product/${this.tempProduct.id}1`;
+      const url = `${this.apiUrl}/api/${this.apiPath}/admin/product/${this.tempProduct.id}`;
 
       axios.delete(url).then((response) => {
         alert(response.data.message);

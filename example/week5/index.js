@@ -16,7 +16,7 @@ configure({
 });
 
 const apiUrl = 'https://vue3-course-api.hexschool.io/v2';
-const apiPath = 'colorfool';
+const apiPath = 'hexschoolvue';
 
 Vue.createApp({
   data() {

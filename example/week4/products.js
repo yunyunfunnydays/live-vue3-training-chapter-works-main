@@ -7,7 +7,7 @@ const app =createApp({
   data() {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/v2',
-      apiPath: 'colorfool',
+      apiPath: 'hexschoolvue',
       products: [],
       tempProduct: {
         imagesUrl: [],
@@ -83,7 +83,7 @@ app.component('productModal', {
   data() {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/v2',
-      apiPath: 'colorfool',
+      apiPath: 'hexschoolvue',
     };
   },
   mounted() {
@@ -130,7 +130,7 @@ app.component('delProductModal', {
   data() {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/v2',
-      apiPath: 'colorfool',
+      apiPath: 'hexschoolvue',
     };
   },
   mounted() {

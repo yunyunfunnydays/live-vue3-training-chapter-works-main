@@ -1,3 +1,3 @@
 <template>
-  index
+  首頁
 </template>

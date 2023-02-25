@@ -2,31 +2,32 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   extends: [
     'plugin:vue/vue3-essential',
-    'airbnb-base'
+    'airbnb-base',
   ],
   overrides: [
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   settings: {
     'import/resolver': {
       alias: {
         map: [
-          ['@', './src']
+          ['@', './src'],
         ],
-        extensions: ['.js', '.vue']
-      }
-    }
+        extensions: ['.js', '.vue'],
+      },
+    },
   },
   plugins: [
-    'vue'
+    'vue',
   ],
   rules: {
-  }
-}
+    'no-alert': 'off',
+  },
+};

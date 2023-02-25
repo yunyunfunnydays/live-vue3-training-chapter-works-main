@@ -70,7 +70,7 @@
       @add-to-cart="addToCart"
     ></UserProductModal>
   </div>
-</template>
+</template> 
 
 <script>
 import UserProductModal from "@/components/UserProductModal.vue";

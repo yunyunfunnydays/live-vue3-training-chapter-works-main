@@ -7,7 +7,7 @@ const routes = [
     component: () => import('../views/HomeView.vue'),
     children: [
       {
-        path: '/cart',
+        path: 'cart',
         name: 'cart',
         component: () => import('../views/Home/CartView.vue'),
       },
@@ -17,14 +17,18 @@ const routes = [
         component: () => import('../views/Home/IndexView.vue'),
       },
       {
-        path: '/products',
+        path: 'products',
         name: 'products',
         component: () => import('../views/Home/ProductsView.vue'),
       },
       {
-        path: 'product',
+        path: 'product/:id',
         name: 'product',
         component: () => import('../views/Home/ProductView.vue'),
+        // props: (route) => ({
+        //   id: route.params.id,
+        // }),
+        props: (route) => ({ id: route.params.id }),
       },
     ],
   },
@@ -44,12 +48,12 @@ const routes = [
     component: () => import('../views/DashboardView.vue'),
     children: [
       {
-        path: '/order',
+        path: 'orders',
         name: 'dashOrder',
         component: () => import('../views/Dashboard/OrdersView.vue'),
       },
       {
-        path: '',
+        path: 'products',
         name: 'dashProducts',
         component: () => import('../views/Dashboard/ProductsView.vue'),
       },

@@ -25,7 +25,7 @@ Object.keys(AllRules).forEach((rule) => {
 
 configure({
   generateMessage: localize({ zh_TW: zhTW }), // 載入繁體中文語系
-  validateOnInput: false, // 當輸入任何內容直接進行驗證
+  validateOnInput: true, // 當輸入任何內容直接進行驗證
 });
 
 // 設定預設語系
